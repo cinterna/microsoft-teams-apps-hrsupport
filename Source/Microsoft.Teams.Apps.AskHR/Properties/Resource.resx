@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -214,15 +214,26 @@
     <comment>Action button which gives tour for the team on bot Functionalities.</comment>
   </data>
   <data name="WelcomeTeamCardContent" xml:space="preserve">
-    <value>Hi, I’m your friendly Q&amp;A bot. You can ask me questions, and I’ll do my best to answer. If I can’t help, I’ll offer to connect you to an expert from human resources.
-My key features:
-• Ask a question, get an answer
-• Ask an expert
+    <value>Hola, BIENVENID@ al Bot de TecoXP - Mudanzas. Haceme una pregunta e intentaré despejar tus dudas :).
+      Si no llego a responderte, te pido me des feedback asi mejoro mis respuestas. ¡Gracias!
+      Te dejo una lista de preguntas frecuentes que puedes hacerme
+
+      ¿Cómo saco un turo?
+      ¿Cómo cancelo el turno?
+      ¿Qué hago si ya retiré mis cosas?
+      ¿Qué puedo retirar?
+      ¿Cómo me traslado al edificio?
+      Si concurro con movilidad propia, ¿cómo reservo cochera?
+      ¿Cómo solicito un taxi/remis?
+      ¿Cómo genero un usuario en MAB?
+      ¿Cuánto tiempo tengo para retirar mis cosas?
+      ¿Puedo solicitar más de un turno para mí?
+
 • Share feedback</value>
     <comment>Welcome message when bot is added to a new team.</comment>
   </data>
   <data name="CustomMessage" xml:space="preserve">
-    <value>I couldn't find an answer to your question, but this article might be helpful.</value>
+    <value>Si no logro responder tu consulta ingresá en el siguiente link.</value>
     <comment>Message when user asks random question to the bot.</comment>
   </data>
   <data name="QuestionAskedFactTitle" xml:space="preserve">
