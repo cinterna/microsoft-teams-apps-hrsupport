@@ -35,22 +35,27 @@ namespace Microsoft.Teams.Apps.AskHR.Bots
         /// <summary>
         /// TeamTour - text that triggers team tour action.
         /// </summary>
-        public const string TeamTour = "team tour";
+        public const string TeamTour = "instrucciones";
+
+        /// <summary>
+        /// Show the Welcome message.
+        /// </summary>
+        public const string WelcomeMsg = "hola";
 
         /// <summary>
         /// TakeAtour - text that triggers take a tour action for the user.
         /// </summary>
-        public const string TakeATour = "take a tour";
+        public const string TakeATour = "que puedo hacer";
 
         /// <summary>
         /// AskAnExpert - text that renders the ask an expert card.
         /// </summary>
-        public const string AskAnExpert = "ask an expert";
+        public const string AskAnExpert = "solicitar ayuda";
 
         /// <summary>
         /// Feedback - text that renders share feedback card.
         /// </summary>
-        public const string ShareFeedback = "share feedback";
+        public const string ShareFeedback = "enviar feedback";
 
         private readonly string expectedTenantId;
         private readonly TelemetryClient telemetryClient;
@@ -237,6 +242,7 @@ namespace Microsoft.Teams.Apps.AskHR.Bots
             }
 
             string text = (message.Text ?? string.Empty).Trim().ToLower();
+            this.telemetryClient.TrackTrace($"Se ha enviado esta solicitud: {text}" );
 
             switch (text)
             {
@@ -254,6 +260,13 @@ namespace Microsoft.Teams.Apps.AskHR.Bots
                     this.telemetryClient.TrackTrace("Sending user tour card");
                     var userTourCards = TourCarousel.GetUserTourCards(this.appBaseUri);
                     await turnContext.SendActivityAsync(MessageFactory.Carousel(userTourCards));
+                    break;
+
+                case WelcomeMsg:
+                    this.telemetryClient.TrackTrace("The user as required the Welcome screen");
+                    var welcomeText = await this.configurationProvider.GetSavedEntityDetailAsync(ConfigurationEntityTypes.WelcomeMessageText);
+                    var userWelcomeCardAttachment = WelcomeCard.GetCard(welcomeText);
+                    await turnContext.SendActivityAsync(MessageFactory.Attachment(userWelcomeCardAttachment));
                     break;
 
                 default:
@@ -319,6 +332,8 @@ namespace Microsoft.Teams.Apps.AskHR.Bots
             Attachment userCard = null;         // Acknowledgement to the user
             TicketEntity newTicket = null;      // New ticket
 
+            this.telemetryClient.TrackTrace($"Otro envio: {message.Text}");
+
             switch (message.Text)
             {
                 case AskAnExpert:
@@ -338,6 +353,12 @@ namespace Microsoft.Teams.Apps.AskHR.Bots
                         await turnContext.SendActivityAsync(MessageFactory.Attachment(ShareFeedbackCard.GetCard(responseCardPayload)));
                         break;
                     }
+                case WelcomeMsg:
+                    this.telemetryClient.TrackTrace("The user as required the Welcome screen");
+                    var welcomeText = await this.configurationProvider.GetSavedEntityDetailAsync(ConfigurationEntityTypes.WelcomeMessageText);
+                    var userWelcomeCardAttachment = WelcomeCard.GetCard(welcomeText);
+                    await turnContext.SendActivityAsync(MessageFactory.Attachment(userWelcomeCardAttachment));
+                    break;
 
                 case AskAnExpertCard.AskAnExpertSubmitText:
                     {
