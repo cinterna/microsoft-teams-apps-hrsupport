@@ -142,7 +142,7 @@
     <comment>Suggests the user to ask question.</comment>
   </data>
   <data name="ShareFeedbackButtonText" xml:space="preserve">
-    <value>Compartir su feedback</value>
+    <value>Compartinos tu Feedback</value>
     <comment>Button text for share feedback show card in QnA response card.</comment>
   </data>
   <data name="DescriptionText" xml:space="preserve">
@@ -269,7 +269,7 @@
     <comment>Text on change status button.</comment>
   </data>
   <data name="ResponseHeaderText" xml:space="preserve">
-    <value>Here is what I found:</value>
+    <value>Esto te puede servir:</value>
     <comment>Response header-letting the user know that a response is generated to their request from QnA Maker.</comment>
   </data>
   <data name="ClosedFactTitle" xml:space="preserve">
@@ -496,7 +496,7 @@
     <comment>Message to show if exception</comment>
   </data>
   <data name="NoMatchedTagsMessage" xml:space="preserve">
-    <value>I couldn't find an answer to your question. Do you want to ask an expert?</value>
+    <value>No encontré nada relacionado a tu pregunta. Por favor, seleccioná una de las siguientes opciones:</value>
     <comment>Message to show when no does not match with tags from table storage.</comment>
   </data>
   <data name="ViewHelpArticleButtonText" xml:space="preserve">
