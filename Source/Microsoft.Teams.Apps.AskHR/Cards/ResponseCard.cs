@@ -48,21 +48,6 @@ namespace Microsoft.Teams.Apps.AskHR.Cards
                 },
                 Actions = new List<AdaptiveAction>
                 {
-                    //new AdaptiveSubmitAction
-                    //{
-                    //    Title = Resource.AskAnExpertButtonText,
-                    //    Data = new ResponseCardPayload
-                    //    {
-                    //        MsTeams = new CardAction
-                    //        {
-                    //            Type = ActionTypes.MessageBack,
-                    //            DisplayText = Resource.AskAnExpertDisplayText,
-                    //            Text = AskHRBot.AskAnExpert,
-                    //        },
-                    //        UserQuestion = userQuestion,
-                    //        KnowledgeBaseAnswer = answer,
-                    //    }
-                    //},
                     new AdaptiveSubmitAction
                     {
                         Title = Resource.ShareFeedbackButtonText,

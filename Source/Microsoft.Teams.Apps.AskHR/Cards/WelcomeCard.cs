@@ -33,22 +33,6 @@ namespace Microsoft.Teams.Apps.AskHR.Cards
                         Text = welcomeText,
                         Wrap = true
                     }
-                },
-                Actions = new List<AdaptiveAction>
-                {
-                    new AdaptiveSubmitAction
-                    {
-                        Title = Resource.TakeATourButtonText,
-                        Data = new TeamsAdaptiveSubmitActionData
-                        {
-                            MsTeams = new CardAction
-                            {
-                              Type = ActionTypes.MessageBack,
-                              DisplayText = Resource.TakeATourButtonText,
-                              Text = AskHRBot.TakeATour
-                            }
-                        },
-                    }
                 }
             };
 
